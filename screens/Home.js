@@ -21,7 +21,10 @@ export const Home = ({ navigation }) => {
     <View style={styles.container}>
       <StatusBar hidden />
       <View style={styles.topSection}>
-        <Text style={styles.logoText}>BLISSKO</Text>
+        <Image
+          source={require("../assets/images/logo.png")}
+          style={styles.logo}
+        />
       </View>
 
       <View style={styles.gridContainer}>
@@ -60,8 +63,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   logo: {
-    width: 50,
-    height: 50,
+    height: 150,
+    width: 325,
     marginRight: 10,
   },
   logoText: {
