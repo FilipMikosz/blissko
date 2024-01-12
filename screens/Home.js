@@ -1,9 +1,17 @@
 import React from "react";
-import { View, Text, Image, StyleSheet, FlatList } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  StyleSheet,
+  FlatList,
+  TouchableOpacity,
+  StatusBar,
+} from "react-native";
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   const data = [
-    { id: "1", text: "Praca" },
+    { id: "1", text: "Praca", navigate: "Praca" },
     { id: "2", text: "Regeneracja" },
     { id: "3", text: "Relaks" },
     { id: "4", text: "O nas", navigate: "About" },
@@ -11,6 +19,7 @@ export const Home = () => {
 
   return (
     <View style={styles.container}>
+      <StatusBar hidden />
       <View style={styles.topSection}>
         <Text style={styles.logoText}>BLISSKO</Text>
       </View>
@@ -21,9 +30,17 @@ export const Home = () => {
           numColumns={2}
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
-            <View style={styles.gridItem}>
+            <TouchableOpacity
+              style={styles.gridItem}
+              onPress={() => {
+                // Handle press, e.g., navigate to the specified screen
+                if (item.navigate) {
+                  navigation.navigate(item.navigate);
+                }
+              }}
+            >
               <Text>{item.text}</Text>
-            </View>
+            </TouchableOpacity>
           )}
         />
       </View>
@@ -53,7 +70,7 @@ const styles = StyleSheet.create({
   },
   gridContainer: {
     flex: 1,
-    gap: "20px",
+    gap: 20,
   },
   gridItem: {
     flex: 1,
