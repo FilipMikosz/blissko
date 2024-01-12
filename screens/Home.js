@@ -12,8 +12,8 @@ import {
 export const Home = ({ navigation }) => {
   const data = [
     { id: "1", text: "Praca", navigate: "Praca" },
-    { id: "2", text: "Regeneracja" },
-    { id: "3", text: "Relaks" },
+    { id: "2", text: "Regeneracja", navigate: "Regeneracja" },
+    { id: "3", text: "Relaks", navigate: "Relaks" },
     { id: "4", text: "O nas", navigate: "About" },
   ];
 

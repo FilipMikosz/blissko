@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native-web";
+import { StyleSheet, Text, View } from "react-native";
 
 export const About = () => {
   return (
