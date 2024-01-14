@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 import {
   View,
   Text,
@@ -7,22 +7,27 @@ import {
   FlatList,
   TouchableOpacity,
   StatusBar,
-} from "react-native";
+} from 'react-native'
 
 export const Home = ({ navigation }) => {
   const data = [
-    { id: "1", text: "Praca", navigate: "Praca" },
-    { id: "2", text: "Regeneracja", navigate: "Regeneracja" },
-    { id: "3", text: "Relaks", navigate: "Relaks" },
-    { id: "4", text: "O nas", navigate: "About" },
-  ];
+    { id: '1', text: 'Praca', navigate: 'Praca', img: 'praca-logo' },
+    {
+      id: '2',
+      text: 'Regeneracja',
+      navigate: 'Regeneracja',
+      img: 'regeneracja-logo',
+    },
+    { id: '3', text: 'Relaks', navigate: 'Relaks', img: 'relaks-logo' },
+    { id: '4', text: 'O nas', navigate: 'About', img: 'o-nas-logo' },
+  ]
 
   return (
     <View style={styles.container}>
       <StatusBar hidden />
       <View style={styles.topSection}>
         <Image
-          source={require("../assets/images/logo.png")}
+          source={require('../assets/images/logo.png')}
           style={styles.logo}
         />
       </View>
@@ -38,18 +43,22 @@ export const Home = ({ navigation }) => {
               onPress={() => {
                 // Handle press, e.g., navigate to the specified screen
                 if (item.navigate) {
-                  navigation.navigate(item.navigate);
+                  navigation.navigate(item.navigate)
                 }
               }}
             >
+              <Image
+                source={require('../assets/images/' + item.img + '.png')}
+                style={{ width: 100, height: 100 }} // Adjust the size as needed
+              />
               <Text>{item.text}</Text>
             </TouchableOpacity>
           )}
         />
       </View>
     </View>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -57,10 +66,10 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   topSection: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 20,
-    justifyContent: "center",
+    justifyContent: 'center',
   },
   logo: {
     height: 150,
@@ -69,7 +78,7 @@ const styles = StyleSheet.create({
   },
   logoText: {
     fontSize: 20,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   gridContainer: {
     flex: 1,
@@ -77,12 +86,12 @@ const styles = StyleSheet.create({
   },
   gridItem: {
     flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     margin: 5,
     height: 200,
     borderRadius: 20,
   },
-});
+})
