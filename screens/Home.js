@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native'
+import { ImageBackground } from 'react-native-web'
 
 export const Home = ({ navigation }) => {
   const data = [
@@ -37,6 +38,8 @@ export const Home = ({ navigation }) => {
     },
   ]
 
+  const backgroundSource = require('../assets/images/background.png')
+
   return (
     <View style={styles.container}>
       <StatusBar hidden />
@@ -46,27 +49,38 @@ export const Home = ({ navigation }) => {
           style={styles.logo}
         />
       </View>
-
-      <View style={styles.gridContainer}>
-        <FlatList
-          data={data}
-          numColumns={2}
-          keyExtractor={(item) => item.id}
-          renderItem={({ item }) => (
-            <TouchableOpacity
-              style={styles.gridItem}
-              onPress={() => {
-                if (item.navigate) {
-                  navigation.navigate(item.navigate)
-                }
-              }}
-            >
-              <Image source={item.img} style={styles.image} />
-              <Text style={styles.itemText}>{item.text}</Text>
-            </TouchableOpacity>
-          )}
-        />
-      </View>
+      <ImageBackground
+        source={backgroundSource}
+        style={{
+          height: '75vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+        }}
+      >
+        <View style={styles.gridContainer}>
+          <FlatList
+            data={data}
+            numColumns={2}
+            keyExtractor={(item) => item.id}
+            renderItem={({ item }) => (
+              <TouchableOpacity
+                style={styles.gridItem}
+                onPress={() => {
+                  if (item.navigate) {
+                    navigation.navigate(item.navigate)
+                  }
+                }}
+              >
+                <View style={styles.gridItemContent}>
+                  <Image source={item.img} style={styles.image} />
+                  <Text style={styles.itemText}>{item.text}</Text>
+                </View>
+              </TouchableOpacity>
+            )}
+          />
+        </View>
+      </ImageBackground>
     </View>
   )
 }
@@ -74,42 +88,39 @@ export const Home = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 20,
     justifyContent: 'space-between',
+    backgroundColor: 'white',
   },
   topSection: {
+    display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: 30,
-  },
-  gridContainer: {
-    // flex: 1,
+    padding: '30px',
   },
   gridItem: {
-    width: '50%',
-    height: '25vh',
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: '23px',
+  },
+  gridItemContent: {
+    backgroundColor: 'white',
+    display: 'flex',
     flexDirection: 'column',
-    borderWidth: 1,
-    borderColor: '#ccc',
-    margin: 6,
-    padding: 15,
-    borderRadius: 30,
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 50,
+    width: 300,
+    height: 300,
   },
   logo: {
+    width: '320px',
     height: 150,
-    width: 325,
-    marginRight: 10,
   },
   image: {
-    width: '100%',
-    height: '100%',
+    width: 150,
+    height: 200,
   },
   itemText: {
-    paddingTop: 10,
+    fontSize: 30,
     fontWeight: 'bold',
-    fontSize: 17,
   },
 })
