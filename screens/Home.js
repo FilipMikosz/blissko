@@ -52,7 +52,7 @@ export const Home = ({ navigation }) => {
       <ImageBackground
         source={backgroundSource}
         style={{
-          height: '75vh',
+          height: '78vh',
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
@@ -96,10 +96,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    padding: '30px',
+    padding: 30,
   },
   gridItem: {
-    padding: '23px',
+    padding: 23,
   },
   gridItemContent: {
     backgroundColor: 'white',
@@ -112,7 +112,7 @@ const styles = StyleSheet.create({
     height: 300,
   },
   logo: {
-    width: '320px',
+    width: 320,
     height: 150,
   },
   image: {
@@ -122,5 +122,6 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 30,
     fontWeight: 'bold',
+    // marginTop: 100,
   },
 })
