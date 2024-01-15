@@ -11,15 +11,30 @@ import {
 
 export const Home = ({ navigation }) => {
   const data = [
-    { id: '1', text: 'Praca', navigate: 'Praca', img: 'praca-logo' },
+    {
+      id: '1',
+      text: 'Praca',
+      navigate: 'Praca',
+      img: require('../assets/images/praca-logo.png'),
+    },
     {
       id: '2',
       text: 'Regeneracja',
       navigate: 'Regeneracja',
-      img: 'regeneracja-logo',
+      img: require('../assets/images/regeneracja-logo.png'),
     },
-    { id: '3', text: 'Relaks', navigate: 'Relaks', img: 'relaks-logo' },
-    { id: '4', text: 'O nas', navigate: 'About', img: 'o-nas-logo' },
+    {
+      id: '3',
+      text: 'Relaks',
+      navigate: 'Relaks',
+      img: require('../assets/images/relaks-logo.png'),
+    },
+    {
+      id: '4',
+      text: 'O nas',
+      navigate: 'About',
+      img: require('../assets/images/o-nas-logo.png'),
+    },
   ]
 
   return (
@@ -41,17 +56,13 @@ export const Home = ({ navigation }) => {
             <TouchableOpacity
               style={styles.gridItem}
               onPress={() => {
-                // Handle press, e.g., navigate to the specified screen
                 if (item.navigate) {
                   navigation.navigate(item.navigate)
                 }
               }}
             >
-              <Image
-                source={require('../assets/images/' + item.img + '.png')}
-                style={{ width: 100, height: 100 }} // Adjust the size as needed
-              />
-              <Text>{item.text}</Text>
+              <Image source={item.img} style={styles.image} />
+              <Text style={styles.itemText}>{item.text}</Text>
             </TouchableOpacity>
           )}
         />
@@ -64,34 +75,41 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
+    justifyContent: 'space-between',
   },
   topSection: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginBottom: 20,
     justifyContent: 'center',
+    marginBottom: 30,
+  },
+  gridContainer: {
+    // flex: 1,
+  },
+  gridItem: {
+    width: '50%',
+    height: '25vh',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    borderWidth: 1,
+    borderColor: '#ccc',
+    margin: 6,
+    padding: 15,
+    borderRadius: 30,
   },
   logo: {
     height: 150,
     width: 325,
     marginRight: 10,
   },
-  logoText: {
-    fontSize: 20,
+  image: {
+    width: '100%',
+    height: '100%',
+  },
+  itemText: {
+    paddingTop: 10,
     fontWeight: 'bold',
-  },
-  gridContainer: {
-    flex: 1,
-    gap: 20,
-  },
-  gridItem: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderWidth: 1,
-    borderColor: '#ccc',
-    margin: 5,
-    height: 200,
-    borderRadius: 20,
+    fontSize: 17,
   },
 })
