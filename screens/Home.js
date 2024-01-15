@@ -35,6 +35,17 @@ export const Home = ({ navigation }) => {
       text: 'O nas',
       navigate: 'About',
       img: require('../assets/images/o-nas-logo.png'),
+      style: {
+        backgroundColor: 'none',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 50,
+        minHeight: 300,
+        minWidth: 300,
+        border: '8px solid white',
+      },
     },
   ]
 
@@ -72,10 +83,17 @@ export const Home = ({ navigation }) => {
                   }
                 }}
               >
-                <View style={styles.gridItemContent}>
-                  <Image source={item.img} style={styles.image} />
-                  <Text style={styles.itemText}>{item.text}</Text>
-                </View>
+                {item.style ? (
+                  <View style={item.style}>
+                    <Image source={item.img} style={styles.image} />
+                    <Text style={styles.itemText}>{item.text}</Text>
+                  </View>
+                ) : (
+                  <View style={styles.gridItemContent}>
+                    <Image source={item.img} style={styles.image} />
+                    <Text style={styles.itemText}>{item.text}</Text>
+                  </View>
+                )}
               </TouchableOpacity>
             )}
           />
@@ -98,6 +116,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 30,
   },
+  gridContainer: {
+    // borderRadius: 100,
+    // trzeba coś wymyśleć tutaj zeby tło było okrągłe bardziej
+  },
   gridItem: {
     padding: 23,
   },
@@ -108,8 +130,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: 50,
-    width: 300,
-    height: 300,
+    minHeight: 300,
+    minWidth: 300,
   },
   logo: {
     width: 320,
@@ -122,6 +144,6 @@ const styles = StyleSheet.create({
   itemText: {
     fontSize: 30,
     fontWeight: 'bold',
-    // marginTop: 100,
+    paddingTop: 10,
   },
 })
