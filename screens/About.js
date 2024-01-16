@@ -28,7 +28,7 @@ export const About = () => {
           <Text
             style={{
               fontSize: 60,
-              fontWeight: 450,
+              fontWeight: 500,
             }}
           >
             {data.heading}
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   },
   section: {
     fontSize: 43,
-    fontWeight: 250,
+    fontWeight: 200,
     paddingTop: 25,
   },
   logo: {

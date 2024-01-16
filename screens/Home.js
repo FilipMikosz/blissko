@@ -110,10 +110,10 @@ const styles = StyleSheet.create({
     padding: 30,
   },
   gridItem: {
-    padding: 23,
+    margin: 23,
   },
   backgroundImage: {
-    height: '78vh',
+    height: 900,
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
