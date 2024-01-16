@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
   StatusBar,
 } from 'react-native'
-import { ImageBackground } from 'react-native-web'
+import { ImageBackground } from 'react-native'
 
 export const Home = ({ navigation }) => {
   const data = [
@@ -60,16 +60,9 @@ export const Home = ({ navigation }) => {
           style={styles.logo}
         />
       </View>
-      <ImageBackground
-        source={backgroundSource}
-        style={{
-          height: '78vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <View style={styles.gridContainer}>
+      <ImageBackground source={backgroundSource} style={styles.backgroundImage}>
+        <View>
+          {/* nie usuwaj tego view, robi za container */}
           <FlatList
             data={data}
             numColumns={2}
@@ -116,12 +109,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: 30,
   },
-  gridContainer: {
-    // borderRadius: 100,
-    // trzeba coś wymyśleć tutaj zeby tło było okrągłe bardziej
-  },
   gridItem: {
     padding: 23,
+  },
+  backgroundImage: {
+    height: '78vh',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopLeftRadius: 45,
+    borderTopRightRadius: 45,
+    overflow: 'hidden',
   },
   gridItemContent: {
     backgroundColor: 'white',
