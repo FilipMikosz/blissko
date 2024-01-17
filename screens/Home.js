@@ -44,7 +44,10 @@ export const Home = ({ navigation }) => {
         borderRadius: 50,
         minHeight: 300,
         minWidth: 300,
-        border: '8px solid white',
+        borderWidth: 10,
+        borderColor: 'white',
+        borderStyle: 'solid',
+        borderRadius: 50,
       },
     },
   ]
@@ -61,8 +64,7 @@ export const Home = ({ navigation }) => {
         />
       </View>
       <ImageBackground source={backgroundSource} style={styles.backgroundImage}>
-        <View>
-          {/* nie usuwaj tego view, robi za container */}
+        <View style={styles.grid}>
           <FlatList
             data={data}
             numColumns={2}
@@ -103,23 +105,28 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   topSection: {
+    flex: 0.2,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30,
+    // height: 350,
   },
   gridItem: {
     margin: 23,
   },
   backgroundImage: {
-    height: 900,
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderTopLeftRadius: 45,
-    borderTopRightRadius: 45,
+    flex: 1,
+    borderTopLeftRadius: 60,
+    borderTopRightRadius: 60,
     overflow: 'hidden',
+  },
+  grid: {
+    flex1: 1,
+    alignItems: 'center',
+    justifyItems: 'center',
+    flexDirection: 'column',
   },
   gridItemContent: {
     backgroundColor: 'white',
