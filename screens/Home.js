@@ -111,6 +111,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30,
+    paddingBottom: 40,
   },
   gridItem: {
     margin: 23,

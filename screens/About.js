@@ -4,7 +4,7 @@ import { ImageBackground } from 'react-native'
 import { TouchableOpacity } from 'react-native'
 
 const backgroundSource = require('../assets/images/background.png')
-// const burgerLogoSource = require('../assets/images/burger-nav.png')
+const burgerLogoSource = require('../assets/images/burger-nav.png')
 
 const data = {
   heading: 'O nas',
@@ -23,12 +23,25 @@ export const About = ({ navigation }) => {
           onPress={() => {
             navigation.navigate('Home')
           }}
+          style={{
+            position: 'absolute',
+            top: 60,
+            left: 60,
+          }}
         >
           <Image
-            source={require('../assets/images/logo.png')}
-            style={styles.logo}
+            source={burgerLogoSource}
+            style={{
+              maxWidth: '30%',
+              maxHeight: '30%',
+            }}
           />
         </TouchableOpacity>
+
+        <Image
+          source={require('../assets/images/logo.png')}
+          style={styles.logo}
+        />
       </View>
       <ImageBackground source={backgroundSource} style={styles.backgroundImage}>
         <View>
@@ -61,6 +74,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30,
+    paddingBottom: 55,
   },
   backgroundImage: {
     flex: 1,
