@@ -22,21 +22,9 @@ export default function App() {
           component={About}
           options={{ headerShown: false }}
         />
-        <Stack.Screen
-          name='Praca'
-          component={Praca}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Relaks'
-          component={Relaks}
-          options={{ headerShown: false }}
-        />
-        <Stack.Screen
-          name='Regeneracja'
-          component={Regeneracja}
-          options={{ headerShown: false }}
-        />
+        <Stack.Screen name='Praca' component={Praca} />
+        <Stack.Screen name='Relaks' component={Relaks} />
+        <Stack.Screen name='Regeneracja' component={Regeneracja} />
       </Stack.Navigator>
     </NavigationContainer>
   )

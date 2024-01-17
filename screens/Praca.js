@@ -1,5 +1,5 @@
-import { SafeAreaView, StatusBar } from "react-native";
-import { WebView } from "react-native-webview";
+import { SafeAreaView, StatusBar } from 'react-native'
+import { WebView } from 'react-native-webview'
 
 export const Praca = () => {
   return (
@@ -7,9 +7,9 @@ export const Praca = () => {
       <StatusBar hidden />
       <WebView
         source={{
-          uri: "https://drive.google.com/drive/folders/15JYA8-vyJ9rqcUiNY0cx85Gwhb-AUjdy?usp=sharing",
+          uri: 'https://drive.google.com/drive/folders/15JYA8-vyJ9rqcUiNY0cx85Gwhb-AUjdy?usp=sharing',
         }}
       />
     </SafeAreaView>
-  );
-};
+  )
+}
