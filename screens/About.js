@@ -84,8 +84,8 @@ const styles = StyleSheet.create({
     padding: 50,
     paddingLeft: 70,
     paddingRight: 70,
-    borderTopLeftRadius: 45,
-    borderTopRightRadius: 45,
+    borderTopLeftRadius: 65,
+    borderTopRightRadius: 65,
     overflow: 'hidden',
   },
   section: {

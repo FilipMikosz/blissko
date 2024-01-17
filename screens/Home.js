@@ -121,9 +121,9 @@ const styles = StyleSheet.create({
     // display: 'flex',
     // alignItems: 'center',
     // justifyContent: 'center',
-    // borderTopLeftRadius: 65,
-    // borderTopRightRadius: 65,
-    // overflow: 'hidden',
+    borderTopLeftRadius: 65,
+    borderTopRightRadius: 65,
+    overflow: 'hidden',
     // height: '100%',
   },
   grid: {
