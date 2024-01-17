@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Home } from './screens/Home'
 import { About } from './screens/About'
 import { Praca } from './screens/Praca'
+import { Relaks } from './screens/Relaks'
+import { Regeneracja } from './screens/Regeneracja'
 
 const Stack = createNativeStackNavigator()
 
@@ -23,6 +25,16 @@ export default function App() {
         <Stack.Screen
           name='Praca'
           component={Praca}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Relaks'
+          component={Relaks}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name='Regeneracja'
+          component={Regeneracja}
           options={{ headerShown: false }}
         />
       </Stack.Navigator>

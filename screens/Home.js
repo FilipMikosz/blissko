@@ -111,7 +111,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     padding: 30,
-    // height: 350,
   },
   gridItem: {
     margin: 23,
@@ -123,6 +122,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   grid: {
+    marginTop: 150,
     flex1: 1,
     alignItems: 'center',
     justifyItems: 'center',

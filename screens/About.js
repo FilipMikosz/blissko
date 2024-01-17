@@ -1,8 +1,10 @@
 import { StatusBar } from 'expo-status-bar'
-import { Image, ImageBackground, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
+import { ImageBackground } from 'react-native'
+import { TouchableOpacity } from 'react-native'
 
 const backgroundSource = require('../assets/images/background.png')
-const burgerLogoSource = require('../assets/images/burger-nav.png')
+// const burgerLogoSource = require('../assets/images/burger-nav.png')
 
 const data = {
   heading: 'O nas',
@@ -12,23 +14,28 @@ const data = {
     'Nasi klienci znajdą w nich zarówno relaks, jak i spokój oraz możliwość skupienia na pracy. Gwarantują izolację w hałaśliwych miejscach publicznych w centrach handlowych, na lotniskach czy dużych firmach.',
 }
 
-export const About = () => {
+export const About = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <StatusBar hidden />
       <View style={styles.topSection}>
-        {/* <Image source={burgerLogoSource} style={styles.burger} /> */}
-        <Image
-          source={require('../assets/images/logo.png')}
-          style={styles.logo}
-        />
+        <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Home')
+          }}
+        >
+          <Image
+            source={require('../assets/images/logo.png')}
+            style={styles.logo}
+          />
+        </TouchableOpacity>
       </View>
       <ImageBackground source={backgroundSource} style={styles.backgroundImage}>
-        <View style={styles.main}>
+        <View>
           <Text
             style={{
               fontSize: 60,
-              fontWeight: 500,
+              fontWeight: '400',
             }}
           >
             {data.heading}
@@ -48,6 +55,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   topSection: {
+    flex: 0.2,
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -55,7 +63,7 @@ const styles = StyleSheet.create({
     padding: 30,
   },
   backgroundImage: {
-    height: '78vh',
+    flex: 1,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'space-between',
@@ -67,9 +75,9 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   section: {
-    fontSize: 43,
-    fontWeight: 200,
-    paddingTop: 25,
+    fontSize: 42,
+    fontWeight: '300',
+    paddingTop: 30,
   },
   logo: {
     width: 320,
